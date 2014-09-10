@@ -25,22 +25,17 @@ Accounts.oauth.connectCredentialRequestCompleteHandler = function (callback) {
 	};
 };
 
-Meteor.connectWithFacebook = function (options, callback) {
-	// Support a callback without options
-	if (!callback && typeof options === "function") {
-		callback = options;
-		options = null;
-	}
-	var connectCredentialRequestCompleteCallback = Accounts.oauth.connectCredentialRequestCompleteHandler(callback);
-	Facebook.requestCredential(options, connectCredentialRequestCompleteCallback);
+var makePascalCased = function (word) {
+	return word[0].toUpperCase() + word.slice(1).toLowerCase();
 };
 
-Meteor.connectWithGoogle = function (options, callback) {
+Meteor.connectWith = function (service, options, callback) {
 	// Support a callback without options
 	if (!callback && typeof options === "function") {
 		callback = options;
 		options = null;
 	}
 	var connectCredentialRequestCompleteCallback = Accounts.oauth.connectCredentialRequestCompleteHandler(callback);
-	Google.requestCredential(options, connectCredentialRequestCompleteCallback);
+	var Service = Package[service][makePascalCased(service)];
+	Service.requestCredential(options, connectCredentialRequestCompleteCallback);
 };

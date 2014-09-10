@@ -1,3 +1,5 @@
+var OAuthEncryption = Package["oauth-encryption"] && Package["oauth-encryption"].OAuthEncryption;
+
 var pinEncryptedFieldsToUser = function (serviceData, userId) {
 	_.each(_.keys(serviceData), function (key) {
 		var value = serviceData[key];
