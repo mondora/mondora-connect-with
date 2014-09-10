@@ -6,15 +6,17 @@ Package.describe({
 
 Package.onUse(function (api) {
 	api.versionsFrom("METEOR@0.9.0");
-	var serverDeps = [
-		"oauth",
-		"oauth-encryption"
-	];
-	api.use(serverDeps, "server");
-	var clientDeps = [
-		"accounts-oauth"
-	];
-	api.use(clientDeps, "client");
+
+	// Server dependencies
+	api.use("oauth", "server");
+	api.use("oauth-encryption", "server");
+
+	// Client dependencies
+	api.use("oauth", "client");
+	api.use("accounts-oauth", "client");
+	api.use("facebook", "client");
+	api.use("google", "client");
+
 	api.addFiles("server.js", "server");
 	api.addFiles("client.js", "client");
 });
