@@ -5,6 +5,16 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
-	api.versionsFrom("METEOR@0.9.1.1");
-	api.addFiles("");
+	api.versionsFrom("METEOR@0.9.0");
+	var serverDeps = [
+		"oauth",
+		"oauth-encryption"
+	];
+	api.use(serverDeps, "server");
+	var clientDeps = [
+		"accounts-oauth"
+	];
+	api.use(clientDeps, "client");
+	api.addFiles("server.js", "server");
+	api.addFiles("client.js", "client");
 });

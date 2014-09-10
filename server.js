@@ -67,7 +67,7 @@ var addOauthService = function (user, options) {
 };
 
 var addPasswordService = function (user, options) {
-
+	// TODO
 };
 
 Meteor.methods({
