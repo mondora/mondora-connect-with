@@ -48,3 +48,6 @@ oauth. To avoid polluting the package with code copy/pasted
 from the `accounts-password` core package, I'm waiting for
 [this pull request](https://github.com/meteor/meteor/pull/2271)
 to resolve before adding the functionality.
+
+Also, it'd be nice to extend the accounts-ui interface with
+the "connect-with" functionality. Contributors are of course welcome. :-)
