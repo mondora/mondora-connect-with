@@ -1,3 +1,7 @@
+/////////////////////////////
+// OAuth related functions //
+/////////////////////////////
+
 var OAuthEncryption = Package["oauth-encryption"] && Package["oauth-encryption"].OAuthEncryption;
 
 var pinEncryptedFieldsToUser = function (serviceData, userId) {
@@ -68,9 +72,21 @@ var addOauthService = function (user, options) {
 	return user._id;
 };
 
+
+
+////////////////////////////////
+// Password related functions //
+////////////////////////////////
+
 var addPasswordService = function (user, options) {
-	// TODO
+	// TODO wait for https://github.com/meteor/meteor/pull/2271 to resolve
 };
+
+
+
+//////////////////////////////
+// `addLoginService` method //
+//////////////////////////////
 
 Meteor.methods({
 	addLoginService: function (options) {
@@ -96,5 +112,6 @@ Meteor.methods({
 		if (options.password) {
 			return addPasswordService(user, options);
 		}
+		throw new Meteor.Error("Bad request");
 	}
 });
