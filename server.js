@@ -80,7 +80,14 @@ Meteor.methods({
 			throw new Meteor.Error("Login required");
 		}
 		// Check arguments
-		check(options, Object);
+		try {
+			// Wrapping this in a try/catch block to avoid throwing
+			// a Match.Error, which gets logged on the server console,
+			// while a Meteor.Error doesn't
+			check(options, Object);
+		} catch (e) {
+			throw new Meteor.Error("Match failed");
+		}
 		// Adding an oauth service
 		if (options.oauth) {
 			return addOauthService(user, options);
