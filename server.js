@@ -122,7 +122,7 @@ Meteor.methods({
 		return _
 			.chain(user.services)
 			.keys()
-			.without("resume")
+			.without("resume", "email")
 			.value();
 	}
 });
