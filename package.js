@@ -1,7 +1,7 @@
 Package.describe({
 	name: "mondora:connect-with",
 	summary: "Connect other oauth accounts with an existing one",
-	version: "0.1.0",
+	version: "0.1.1",
 	git: "https://github.com/mondora/mondora-connect-with.git"
 });
 

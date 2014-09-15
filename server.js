@@ -112,5 +112,17 @@ Meteor.methods({
 			return addPasswordService(user, options);
 		}
 		throw new Meteor.Error("Bad request");
+	},
+	listLoginServices: function () {
+		var user = Meteor.user();
+		// Ensure the user is logged in
+		if (!user) {
+			throw new Meteor.Error("Login required");
+		}
+		return _
+			.chain(user.services)
+			.keys()
+			.without("resume")
+			.value();
 	}
 });

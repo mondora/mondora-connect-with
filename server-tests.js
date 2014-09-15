@@ -7,6 +7,14 @@ Tinytest.add("mondora:connect-with - registers the `addLoginService` method", fu
 });
 
 /*
+ *	mondora:connect-with - registers the `listLoginServices` method
+ */
+Tinytest.add("mondora:connect-with - registers the `listLoginServices` method", function (test) {
+	var methods = _.keys(Meteor.server.method_handlers);
+	test.isTrue(_.contains(methods, "listLoginServices"));
+});
+
+/*
  *	Setup methods
  */
 var pendingCredential = {
