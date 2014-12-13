@@ -6,15 +6,9 @@ Accounts.oauth.tryConnectAfterPopupClosed = function (credentialToken, callback)
 			credentialSecret: credentialSecret
 		}
 	};
-    Meteor.call("addLoginService", options, function (error) {
-        if (error) {
-		    if (callback) {
-                callback(error);
-            }
-        } else {
-            if (callback) {
-                callback();
-            }
+	Meteor.call("addLoginService", options, function (error) {
+		if (callback) {
+			callback(error);
 		}
 	});
 };
