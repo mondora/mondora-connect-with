@@ -36,6 +36,6 @@ Meteor.connectWith = function (service, options, callback) {
 		options = null;
 	}
 	var connectCredentialRequestCompleteCallback = Accounts.oauth.connectCredentialRequestCompleteHandler(callback);
-	var Service = Package[service][makePascalCased(service)];
+	var Service = typeof service === "string" ? Package[service][makePascalCased(service)] : service;
 	Service.requestCredential(options, connectCredentialRequestCompleteCallback);
 };
