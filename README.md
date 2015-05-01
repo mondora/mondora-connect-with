@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/mondora/mondora-connect-with.svg?branch=master)](https://travis-ci.org/mondora/mondora-connect-with)
-#connect-with
+# connect-with
 Meteor package to connect multiple OAuth providers to a
 single user account.
 
@@ -7,7 +7,7 @@ The user, after connecting multiple services (e.g. Google
 and Facebook), can then login to his account using whichever
 one he wants.
 
-##Example
+## Example
 Setup:
 ```bash
 # Add google and facebook authentication
@@ -28,7 +28,7 @@ prompted to login to facebook. When the popup closes, the
 google and facebook services will both be connected to the
 user account.
 
-##API
+## API
 
 ####Meteor.connectWith(serviceName, [options], [callback])
 #####Arguments
@@ -40,7 +40,7 @@ user account.
 * `callback` **function** *optional*: called with no arguments on success,
   or with a single Error argument on failure.
 
-##Future plans
+## Future plans
 All oauth services are supported. In the future I'd like to
 add the possibility to set a pair of credentials (username
 or email, and password) to an existing account connected via
