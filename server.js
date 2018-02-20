@@ -101,7 +101,7 @@ Meteor.methods({
 			// while a Meteor.Error doesn't
 			check(options, Object);
 		} catch (e) {
-			throw new Meteor.Error("Match failed");
+			throw new Meteor.Error("Match failed. Error: "+e);
 		}
 		// Adding an oauth service
 		if (options.oauth) {
